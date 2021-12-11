@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h4 class="bg-primary text-white text-center p-2">
+      <span v-html="icon"></span>
+      {{ app_name }}
+    </h4>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  el: '#app',
+  data() {
+    return {
+      app_name: 'To do list',
+      icon: '<i class="fa fa-calendar" aria-hidden="true"></i>'
+    };
+  },
 }
 </script>
 
