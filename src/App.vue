@@ -11,11 +11,21 @@
         <div class="col-4 font-weight-bold">Task</div>
         <div class="col-2 font-weight-bold">Done</div>
       </div>
-      <div class="row" v-for="(task, index) in tasks" v-bind:key="index">
-        <div class="col-1 align-self-center">{{ index + 1 }}</div>
-        <img class="col-2 col-md-1 img-fluid" src="https://pbs.twimg.com/profile_images/1245425709666816000/gkb8QvTW.jpg"/>
-        <div class="col-4 align-self-center text-left">{{ task.action }}</div>
-        <div class="col-2 align-self-center text-center">{{ task.done }}</div>
+      <div v-for="(task, index) in tasks" v-bind:key="index">
+        <div class="row" v-if="!task.done">
+          <div class="col-1 align-self-center">{{ index + 1 }}</div>
+          <img class="col-2 col-md-1 img-fluid" src="https://pbs.twimg.com/profile_images/1245425709666816000/gkb8QvTW.jpg"/>
+          <div class="col-4 align-self-center text-left">{{ task.action }}</div>
+          <div class="col-2 align-self-center text-center">{{ task.done }}</div>
+        </div>
+      </div>
+      <div v-for="(task, index) in tasks" v-bind:key="index">
+        <div class="row" v-show="task.done">
+          <div class="col-1 align-self-center">{{ index + 1 }}</div>
+          <img class="col-2 col-md-1 img-fluid" src="https://pbs.twimg.com/profile_images/1245425709666816000/gkb8QvTW.jpg">
+          <div class="col-4 align-self-center text-left">{{ task.action }}</div>
+          <div class="col-2 align-self-center text-center">{{ task.done }}</div>
+        </div>
       </div>
     </div>
   </div>
